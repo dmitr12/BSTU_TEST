@@ -1,0 +1,8 @@
+D:\Programming\Testing_Lab3\Testing_Lab3\bin\Debug\netstandard2.0\Testing_Lab3.deps.json
+D:\Programming\Testing_Lab3\Testing_Lab3\bin\Debug\netstandard2.0\Testing_Lab3.dll
+D:\Programming\Testing_Lab3\Testing_Lab3\bin\Debug\netstandard2.0\Testing_Lab3.pdb
+D:\Programming\Testing_Lab3\Testing_Lab3\obj\Debug\netstandard2.0\Testing_Lab3.csproj.CoreCompileInputs.cache
+D:\Programming\Testing_Lab3\Testing_Lab3\obj\Debug\netstandard2.0\Testing_Lab3.AssemblyInfoInputs.cache
+D:\Programming\Testing_Lab3\Testing_Lab3\obj\Debug\netstandard2.0\Testing_Lab3.AssemblyInfo.cs
+D:\Programming\Testing_Lab3\Testing_Lab3\obj\Debug\netstandard2.0\Testing_Lab3.dll
+D:\Programming\Testing_Lab3\Testing_Lab3\obj\Debug\netstandard2.0\Testing_Lab3.pdb
