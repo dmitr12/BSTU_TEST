@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programming\\Testing_Lab3\\UnitTests_Triangle\\UnitTests_Triangle.csproj": {}
+    "D:\\LocalRepos\\BSTU_TEST\\Testing_Lab3\\UnitTests_Triangle\\UnitTests_Triangle.csproj": {}
   },
   "projects": {
-    "D:\\Programming\\Testing_Lab3\\Testing_Lab3\\Testing_Lab3.csproj": {
+    "D:\\LocalRepos\\BSTU_TEST\\Testing_Lab3\\Testing_Lab3\\Testing_Lab3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\Testing_Lab3\\Testing_Lab3\\Testing_Lab3.csproj",
+        "projectUniqueName": "D:\\LocalRepos\\BSTU_TEST\\Testing_Lab3\\Testing_Lab3\\Testing_Lab3.csproj",
         "projectName": "Testing_Lab3",
-        "projectPath": "D:\\Programming\\Testing_Lab3\\Testing_Lab3\\Testing_Lab3.csproj",
+        "projectPath": "D:\\LocalRepos\\BSTU_TEST\\Testing_Lab3\\Testing_Lab3\\Testing_Lab3.csproj",
         "packagesPath": "C:\\Users\\Dyrda Dmitriy\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\Testing_Lab3\\Testing_Lab3\\obj\\",
+        "outputPath": "D:\\LocalRepos\\BSTU_TEST\\Testing_Lab3\\Testing_Lab3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -56,14 +56,14 @@
         }
       }
     },
-    "D:\\Programming\\Testing_Lab3\\UnitTests_Triangle\\UnitTests_Triangle.csproj": {
+    "D:\\LocalRepos\\BSTU_TEST\\Testing_Lab3\\UnitTests_Triangle\\UnitTests_Triangle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\Testing_Lab3\\UnitTests_Triangle\\UnitTests_Triangle.csproj",
+        "projectUniqueName": "D:\\LocalRepos\\BSTU_TEST\\Testing_Lab3\\UnitTests_Triangle\\UnitTests_Triangle.csproj",
         "projectName": "UnitTests_Triangle",
-        "projectPath": "D:\\Programming\\Testing_Lab3\\UnitTests_Triangle\\UnitTests_Triangle.csproj",
+        "projectPath": "D:\\LocalRepos\\BSTU_TEST\\Testing_Lab3\\UnitTests_Triangle\\UnitTests_Triangle.csproj",
         "packagesPath": "C:\\Users\\Dyrda Dmitriy\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\Testing_Lab3\\UnitTests_Triangle\\obj\\",
+        "outputPath": "D:\\LocalRepos\\BSTU_TEST\\Testing_Lab3\\UnitTests_Triangle\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -82,8 +82,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "D:\\Programming\\Testing_Lab3\\Testing_Lab3\\Testing_Lab3.csproj": {
-                "projectPath": "D:\\Programming\\Testing_Lab3\\Testing_Lab3\\Testing_Lab3.csproj"
+              "D:\\LocalRepos\\BSTU_TEST\\Testing_Lab3\\Testing_Lab3\\Testing_Lab3.csproj": {
+                "projectPath": "D:\\LocalRepos\\BSTU_TEST\\Testing_Lab3\\Testing_Lab3\\Testing_Lab3.csproj"
               }
             }
           }
