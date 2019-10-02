@@ -9,9 +9,9 @@ D:\Programming\Testing_Lab3\Testing_Lab3\obj\Debug\netstandard2.0\Testing_Lab3.p
 D:\LocalRepos\BSTU_TEST\Testing_Lab3\Testing_Lab3\bin\Debug\netstandard2.0\Testing_Lab3.deps.json
 D:\LocalRepos\BSTU_TEST\Testing_Lab3\Testing_Lab3\bin\Debug\netstandard2.0\Testing_Lab3.dll
 D:\LocalRepos\BSTU_TEST\Testing_Lab3\Testing_Lab3\bin\Debug\netstandard2.0\Testing_Lab3.pdb
-D:\LocalRepos\BSTU_TEST\Testing_Lab3\Testing_Lab3\obj\Debug\netstandard2.0\Testing_Lab3.csprojAssemblyReference.cache
 D:\LocalRepos\BSTU_TEST\Testing_Lab3\Testing_Lab3\obj\Debug\netstandard2.0\Testing_Lab3.csproj.CoreCompileInputs.cache
 D:\LocalRepos\BSTU_TEST\Testing_Lab3\Testing_Lab3\obj\Debug\netstandard2.0\Testing_Lab3.AssemblyInfoInputs.cache
 D:\LocalRepos\BSTU_TEST\Testing_Lab3\Testing_Lab3\obj\Debug\netstandard2.0\Testing_Lab3.AssemblyInfo.cs
 D:\LocalRepos\BSTU_TEST\Testing_Lab3\Testing_Lab3\obj\Debug\netstandard2.0\Testing_Lab3.dll
 D:\LocalRepos\BSTU_TEST\Testing_Lab3\Testing_Lab3\obj\Debug\netstandard2.0\Testing_Lab3.pdb
+D:\LocalRepos\BSTU_TEST\Testing_Lab3\Testing_Lab3\obj\Debug\netstandard2.0\Testing_Lab3.csprojAssemblyReference.cache
