@@ -16,7 +16,13 @@ namespace Aircompany
         }
         public List<TypePlane> GetPlanes<TypePlane>() where TypePlane:Plane
         {
-            return Planes.Where(plane => plane is TypePlane).Select(plane => (TypePlane)plane).ToList();
+            List<TypePlane> planes = new List<TypePlane>();
+            foreach(var plane in Planes)
+            {
+                if (plane is TypePlane)
+                    planes.Add((TypePlane)plane);
+            }
+            return planes;
         }
         public PassengerPlane GetPassengerPlaneWithMaxPassengersCapacity()
         {
