@@ -16,28 +16,26 @@ namespace WebDriver
         {
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://zhd.online");
-            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/div[1]/div[2]/input")).SendKeys("Москва");
-            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/div[2]/div[2]/input")).SendKeys("Москва");
-            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/input")).Click();
-            IWebElement error = GetElement(driver, "/html/body/div[1]/div[3]/div[1]/p");
+            driver.FindElement(By.XPath("//INPUT[@class='slide_tcal tc1']")).SendKeys("Москва");
+            driver.FindElement(By.XPath("//INPUT[@class='slide_tcal tc2']")).SendKeys("Москва");
+            driver.FindElement(By.XPath("//INPUT[@class='search_button']")).Click();
+            IWebElement error = GetElement(driver, "//DIV[@class='inner_left']/p");
             Assert.AreEqual("Сожалеем, но поезда по данному маршруту отсутствуют.", error.Text);
             driver.Quit();
         }
         [TestMethod]
         public void SearchWithWrongDate()
         {
-            string day = DateTime.Now.AddDays(-1).Day.ToString();
-            string month = DateTime.Now.Month.ToString();
-            string year = DateTime.Now.Year.ToString();
             driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://www.zhd.online");
-            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/div[1]/div[2]/input")).SendKeys("Москва");
-            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/div[2]/div[2]/input")).SendKeys("Казань");
-            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/div[3]/div[2]/input")).Clear();
-            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/div[3]/div[2]/input")).SendKeys(day + "." + month + "." + year);
-            driver.FindElement(By.XPath("/html/body/div[1]/div[2]/div/div[2]/input")).Click();
+            driver.FindElement(By.XPath("//INPUT[@class='slide_tcal tc1']")).SendKeys("Москва");
+            driver.FindElement(By.XPath("//INPUT[@class='slide_tcal tc2']")).SendKeys("Казань");
+            IWebElement dateString = driver.FindElement(By.XPath("//INPUT[@class='slide_tcal tc3']"));
+            dateString.Clear();
+            dateString.SendKeys(DateTime.Now.AddDays(-1).ToString("dd.MM.yyyy"));
+            driver.FindElement(By.XPath("//INPUT[@class='search_button']")).Click();
             Assert.AreEqual("Дата устарела, в указанную дату поезд не ходит. Пожалуйста, выберите другую.",
-                GetElement(driver, "/html/body/div[1]/div[3]/div[1]/p").Text);
+                GetElement(driver, "//DIV[@class='inner_left']/p").Text);
             driver.Quit();
         }
         IWebElement GetElement(IWebDriver driver, string xPath)
