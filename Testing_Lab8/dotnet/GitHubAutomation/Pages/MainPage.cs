@@ -33,7 +33,7 @@ namespace Framework.Pages
             DepartureCity.SendKeys(route.DepartureCity);
             ArrivalCity.SendKeys(route.ArrivalCity);
             DateFiled.Clear();
-            DateFiled.SendKeys(DateTime.Now.AddDays(1).ToString("dd.MM.yyyy"));
+            DateFiled.SendKeys(route.DepartureDate);
             SearchButton.Click();
             return new ListTicketsPage(driver);
         }

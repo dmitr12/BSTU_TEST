@@ -154,8 +154,10 @@
     <Compile Include="Driver\DriverSingleton.cs" />
     <Compile Include="Models\Route.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Pages\CheckUserInformationPage.cs" />
     <Compile Include="Pages\ListTicketsPage.cs" />
     <Compile Include="Pages\MainPage.cs" />
+    <Compile Include="Pages\PayPage.cs" />
     <Compile Include="Pages\TypeTrainPage.cs" />
     <Compile Include="Pages\UserInformationPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

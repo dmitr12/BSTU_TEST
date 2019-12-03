@@ -10,13 +10,22 @@ namespace Framework.Services
     {
         public static Route WithAllProperties()
         {
-            return new Route(TestDataReader.GetData("DepartureCity"), TestDataReader.GetData("ArrivalCity"));
+            return new Route(TestDataReader.GetData("DepartureCity"), TestDataReader.GetData("ArrivalCity"), DateTime.Now.AddDays(1).ToString("dd.MM.yyyy"));
         }
 
         public static Route WithEqualCities()
         {
-            return new Route(TestDataReader.GetData("DepartureCity"), TestDataReader.GetData("DepartureCity"));
+            return new Route(TestDataReader.GetData("DepartureCity"), TestDataReader.GetData("DepartureCity"), DateTime.Now.AddDays(1).ToString("dd.MM.yyyy"));
         }
 
+        public static Route WithFailDate()
+        {
+            return new Route(TestDataReader.GetData("DepartureCity"), TestDataReader.GetData("ArrivalCity"), DateTime.Now.AddDays(-1).ToString("dd.MM.yyyy"));
+        }
+
+        public static Route WithoutDate()
+        {
+            return new Route(TestDataReader.GetData("DepartureCity"), TestDataReader.GetData("ArrivalCity"), string.Empty);
+        }
     }
 }

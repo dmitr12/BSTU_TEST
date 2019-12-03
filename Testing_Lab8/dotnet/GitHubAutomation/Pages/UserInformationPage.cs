@@ -50,7 +50,7 @@ namespace GitHubAutomation.Pages
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//input[@class='wg-textinput t_doc_num -metrika-nokeys']")));
         }
 
-        public UserInformationPage WriteUserInformationAndClickSubmit(User user)
+        public CheckUserInformationPage WriteUserInformationAndClickSubmit(User user)
         {
             LastName.SendKeys(user.LastName);
             Name.SendKeys(user.Name);
@@ -59,22 +59,32 @@ namespace GitHubAutomation.Pages
             for (int i = 0; i < 10; i++)
                 BirthDay.SendKeys(Keys.Left);
             BirthDay.SendKeys(user.BirthDay);
-            Thread.Sleep(3000);
             Document.SendKeys(user.DocumentNumber);
             Mail.SendKeys(user.Mail);
             Phone.SendKeys(user.Phone);
             NextButton.Click();
-            Thread.Sleep(5000);
+            return new CheckUserInformationPage(driver);
+        }
+
+        public UserInformationPage ClickWithoutInforamtion()
+        {
+            NextButton.Click();
             return this;
         }
-        //public bool IsEnabledInformationFields()
-        //{
-        //    new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//input[@class='t_last_name wg-textinput']")));
-        //    new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[@class='wg-button wg-button_always-big t_next_button']")));
-        //    bool a = LastName.Enabled;
-        //    NextButton.Click();
-        //    string h = "ds";
-        //    return ;
-        //}
+
+        public bool WriteFailDate(User user)
+        {
+            for (int i = 0; i < 10; i++)
+                BirthDay.SendKeys(Keys.Left);
+            BirthDay.SendKeys(user.BirthDay);
+            NextButton.Click();
+            return IsDisplayFailBirthDate();
+        }
+
+        public bool IsDisplayFailBirthDate()
+        {
+            new WebDriverWait(driver, TimeSpan.FromSeconds(30)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[@class='wg-form__label wg-form__label_error']")));
+            return driver.FindElement(By.XPath("//span[@class='wg-form__label wg-form__label_error']")).Displayed;
+        }
     }
 }

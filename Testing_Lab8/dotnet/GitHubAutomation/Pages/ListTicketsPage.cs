@@ -23,6 +23,8 @@ namespace Framework.Pages
             PageFactory.InitElements(driver, this);
             this.driver = driver;
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@class='train_count']/span")));
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//input[@class='tc3 inp inp3']")));
+
         }
 
         public TypeTrainPage ClickBuyFirstTicket()

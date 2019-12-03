@@ -19,5 +19,11 @@ namespace GitHubAutomation.Services
             return new User(TestDataReader.GetData("LastName"), TestDataReader.GetData("Name"), TestDataReader.GetData("MiddleName")
                 , TestDataReader.GetData("BirthDay"), "0000000000", TestDataReader.GetData("Mail"), TestDataReader.GetData("Phone"));
         }
+
+        public static User WithFailBirthDay()
+        {
+            return new User(TestDataReader.GetData("LastName"), TestDataReader.GetData("Name"), TestDataReader.GetData("MiddleName")
+                , "12.12.2222", TestDataReader.GetData("Document"), TestDataReader.GetData("Mail"), TestDataReader.GetData("Phone"));
+        }
     }
 }

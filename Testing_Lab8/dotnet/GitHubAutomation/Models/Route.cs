@@ -8,13 +8,13 @@ namespace Framework.Models
     {
         public string DepartureCity { get; set; }
         public string ArrivalCity { get; set; }
-        //public DateTime DepartureDate { get; set; }
+        public string DepartureDate { get; set; }
 
-        public Route(string departureCity, string arrivalCity/*DateTime departureDate*/)
+        public Route(string departureCity, string arrivalCity, string departureDate)
         {
             DepartureCity = departureCity;
             ArrivalCity = arrivalCity;
-            //DepartureDate = departureDate;
+            DepartureDate = departureDate;
         }
     }
 }

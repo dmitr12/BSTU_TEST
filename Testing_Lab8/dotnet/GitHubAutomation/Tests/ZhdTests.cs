@@ -18,76 +18,102 @@ namespace Framework.Tests
         [Category("SearchTest")]
         public void FindTicketWithoutIndicateSeat()
         {
-            MakeScreenshotWhenFail(() =>
-            {
-                TypeTrainPage typeTrainPage = new MainPage(Driver)
+            TypeTrainPage typeTrainPage = new MainPage(Driver)
                          .InputRouteDateAndClickSearch(RouteCreator.WithAllProperties())
                          .ClickBuyFirstTicket()
                          .ClickTypeTrain();
-                Assert.AreEqual("Необходимо выбрать 1 место", typeTrainPage.TextException.Text);
-
-            });           
+            Assert.AreEqual("Необходимо выбрать 1 место", typeTrainPage.TextException.Text);
         }
+
         [Test]
         [Category("DateTest")]
         public void TrueRouteDate()
         {
-            MakeScreenshotWhenFail(() =>
-            {
-                ListTicketsPage listTicketsPage = new MainPage(DriverSingleton.GetDriver())
-                 .InputRouteDateAndClickSearch(RouteCreator.WithAllProperties());
-                Assert.AreNotEqual("0", listTicketsPage.CountRoute.Text);
-            });        
+            ListTicketsPage listTicketsPage = new MainPage(DriverSingleton.GetDriver())
+                  .InputRouteDateAndClickSearch(RouteCreator.WithAllProperties());
+            Assert.AreNotEqual("0", listTicketsPage.CountRoute.Text);
         }
 
         [Test]
         [Category("SearchTest")]
         public void FindTicketWithEqualDepartureAndArrivalCities()
         {
-            MakeScreenshotWhenFail(() =>
-            {
-                ListTicketsPage listTicketsPage = new MainPage(DriverSingleton.GetDriver())
-                .InputRouteDateAndClickSearch(RouteCreator.WithEqualCities());
-                Assert.AreEqual("Сожалеем, но поезда по данному маршруту отсутствуют.", listTicketsPage.TextException.Text);
-            });
+            ListTicketsPage listTicketsPage = new MainPage(DriverSingleton.GetDriver())
+                 .InputRouteDateAndClickSearch(RouteCreator.WithEqualCities());
+            Assert.AreEqual("Сожалеем, но поезда по данному маршруту отсутствуют.", listTicketsPage.TextException.Text);
         }
 
         [Test]
         [Category("SearchTest")]
         public void FindTicketWithoutRoute()
         {
-            MakeScreenshotWhenFail(() =>
-            {
-                Assert.IsFalse(new MainPage(DriverSingleton.GetDriver()).CheckCitiesBackground());
-            });
+            Assert.IsFalse(new MainPage(DriverSingleton.GetDriver()).CheckCitiesBackground());
         }
 
         [Test]
         [Category("UserTest")]
         public void FindTicketWithFailDocument()
         {
-            MakeScreenshotWhenFail(() =>
-            {
-                UserInformationPage userInformationPage = new MainPage(Driver)
+            CheckUserInformationPage checkUserInformationPage = new MainPage(Driver)
                    .InputRouteDateAndClickSearch(RouteCreator.WithAllProperties())
                    .ClickBuyFirstTicket()
                    .ChoseSeatAndClickUserInformation()
                    .WriteUserInformationAndClickSubmit(UserCreator.WithFailDocument());
-            });
+            Assert.IsTrue(checkUserInformationPage.VisibleNextButton());
         }
 
-        //[Test]
-        //[Category("UserTest")]
-        //public void GetTicketWithoutUserInformation()
-        //{
-        //    MakeScreenshotWhenFail(() =>
-        //    {
-        //        UserInformationPage userInformationPage = new MainPage(Driver)
-        //            .InputRouteDateAndClickSearch(RouteCreator.WithAllProperties())
-        //            .ClickBuyFirstTicket()
-        //            .ChoseSeatAndClickUserInformation();
-        //        Assert.IsFalse(userInformationPage.IsEnabledInformationFields());
-        //    });
-        //}
+        [Test]
+        [Category("UserTest")]
+        public void GetTicketWithoutUserInformation()
+        {
+            UserInformationPage userInformationPage = new MainPage(Driver)
+                   .InputRouteDateAndClickSearch(RouteCreator.WithAllProperties())
+                   .ClickBuyFirstTicket()
+                   .ChoseSeatAndClickUserInformation()
+                   .ClickWithoutInforamtion();
+            Assert.IsTrue(userInformationPage.IsDisplayFailBirthDate());
+        }
+
+        [Test]
+        [Category("SearchTest")]
+        public void PayForTicketWithoutInformationAboutCard()
+        {
+            PayPage payPage = new MainPage(Driver)
+                    .InputRouteDateAndClickSearch(RouteCreator.WithAllProperties())
+                    .ClickBuyFirstTicket()
+                    .ChoseSeatAndClickUserInformation()
+                    .WriteUserInformationAndClickSubmit(UserCreator.WithAllProperties())
+                    .ClickButtonNext();
+            Assert.IsTrue(payPage.IsVisibleErrorField());
+        }
+
+        [Test]
+        [Category("DateTest")]
+        public void SearchTicketWithErrorDate()
+        {
+            ListTicketsPage listTicketsPage = new MainPage(DriverSingleton.GetDriver())
+            .InputRouteDateAndClickSearch(RouteCreator.WithFailDate());
+            Assert.AreEqual("Дата устарела, в указанную дату поезд не ходит. Пожалуйста, выберите другую.", listTicketsPage.TextException.Text);
+        }
+
+        [Test]
+        [Category("UserTest")]
+        public void FindTicketWithFailBithDate()
+        {
+            UserInformationPage userInformationPage = new MainPage(Driver)
+                   .InputRouteDateAndClickSearch(RouteCreator.WithAllProperties())
+                   .ClickBuyFirstTicket()
+                   .ChoseSeatAndClickUserInformation();
+            Assert.IsTrue(userInformationPage.WriteFailDate(UserCreator.WithFailBirthDay()));
+        }
+
+        [Test]
+        [Category("DateTest")]
+        public void SearchTicketWithoutDate()
+        {
+            ListTicketsPage listTicketsPage = new MainPage(DriverSingleton.GetDriver())
+                  .InputRouteDateAndClickSearch(RouteCreator.WithoutDate());
+            Assert.AreNotEqual("0", listTicketsPage.CountRoute.Text);
+        }
     }
 }
