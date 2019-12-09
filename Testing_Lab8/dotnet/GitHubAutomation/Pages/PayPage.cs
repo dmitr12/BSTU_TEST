@@ -13,8 +13,8 @@ namespace GitHubAutomation.Pages
     {
         IWebDriver driver;
 
-        [FindsBy(How=How.XPath,Using="//div[@class='submit']/input")]
-        IWebElement PayButton { get; set; }
+        [FindsBy(How = How.XPath, Using = "//div[@class='submit']/input")]
+        IWebElement payButton;
 
         public PayPage(IWebDriver driver)
         {
@@ -25,7 +25,7 @@ namespace GitHubAutomation.Pages
 
         public bool IsVisibleErrorField()
         {
-            PayButton.Click();
+            payButton.Click();
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@class='error']")));
             return driver.FindElement(By.XPath("//div[@class='error']")).Displayed;
         }

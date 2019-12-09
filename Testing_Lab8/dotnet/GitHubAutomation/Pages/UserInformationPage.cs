@@ -13,30 +13,32 @@ namespace GitHubAutomation.Pages
     {
         IWebDriver driver;
 
-        [FindsBy(How =How.XPath, Using = "//input[@class='t_last_name wg-textinput']")]
-        IWebElement LastName { get; set; }
+        [FindsBy(How = How.XPath, Using = "//input[@class='t_last_name wg-textinput']")]
+        IWebElement lastName;
 
         [FindsBy(How = How.XPath, Using = "//input[@class='t_name wg-textinput']")]
-        IWebElement Name { get; set; }
+        IWebElement name;
 
         [FindsBy(How = How.XPath, Using = "//input[@class='t_middle_name wg-textinput']")]
-        IWebElement MiddleName { get; set; }
+        IWebElement middleName;
 
         [FindsBy(How = How.XPath, Using = "//input[@class='wg-textinput t_birth_date -metrika-nokeys']")]
-        IWebElement BirthDay { get; set; }
+        IWebElement birthDay;
 
         [FindsBy(How = How.XPath, Using = "//input[@class='wg-textinput t_doc_num -metrika-nokeys']")]
-        IWebElement Document { get; set; }
+        IWebElement document;
 
         [FindsBy(How = How.XPath, Using = "//button[@class='wg-button wg-button_always-big t_next_button']")]
-        IWebElement NextButton { get; set; }
+        IWebElement nextButton;
 
         [FindsBy(How = How.XPath, Using = "//select[@class='t_sex']/option[2]")]
-        IWebElement Gender { get; set; }
+        IWebElement gender;
+
         [FindsBy(How = How.XPath, Using = "//input[@class='wg-textinput t_email']")]
-        IWebElement Mail { get; set; }
+        IWebElement mail;
+
         [FindsBy(How = How.XPath, Using = "//input[@class='wg-textinput t_phone']")]
-        IWebElement Phone { get; set; }
+        IWebElement phone;
 
         public UserInformationPage(IWebDriver driver)
         {
@@ -52,32 +54,32 @@ namespace GitHubAutomation.Pages
 
         public CheckUserInformationPage WriteUserInformationAndClickSubmit(User user)
         {
-            LastName.SendKeys(user.LastName);
-            Name.SendKeys(user.Name);
-            MiddleName.SendKeys(user.MiddleName);
-            Gender.Click();
+            lastName.SendKeys(user.LastName);
+            name.SendKeys(user.Name);
+            middleName.SendKeys(user.MiddleName);
+            gender.Click();
             for (int i = 0; i < 10; i++)
-                BirthDay.SendKeys(Keys.Left);
-            BirthDay.SendKeys(user.BirthDay);
-            Document.SendKeys(user.DocumentNumber);
-            Mail.SendKeys(user.Mail);
-            Phone.SendKeys(user.Phone);
-            NextButton.Click();
+                birthDay.SendKeys(Keys.Left);
+            birthDay.SendKeys(user.BirthDay);
+            document.SendKeys(user.DocumentNumber);
+            mail.SendKeys(user.Mail);
+            phone.SendKeys(user.Phone);
+            nextButton.Click();
             return new CheckUserInformationPage(driver);
         }
 
         public UserInformationPage ClickWithoutInforamtion()
         {
-            NextButton.Click();
+            nextButton.Click();
             return this;
         }
 
         public bool WriteFailDate(User user)
         {
             for (int i = 0; i < 10; i++)
-                BirthDay.SendKeys(Keys.Left);
-            BirthDay.SendKeys(user.BirthDay);
-            NextButton.Click();
+                birthDay.SendKeys(Keys.Left);
+            birthDay.SendKeys(user.BirthDay);
+            nextButton.Click();
             return IsDisplayFailBirthDate();
         }
 

@@ -13,8 +13,8 @@ namespace GitHubAutomation.Pages
     {
         IWebDriver driver;
 
-        [FindsBy(How=How.XPath, Using = "//button[@class='wg-button wg-button_always-big t_next_button']")]
-        IWebElement NextButton { get; set; }
+        [FindsBy(How = How.XPath, Using = "//button[@class='wg-button wg-button_always-big t_next_button']")]
+        IWebElement nextButton;
 
         public CheckUserInformationPage(IWebDriver driver)
         {
@@ -25,13 +25,13 @@ namespace GitHubAutomation.Pages
 
         public PayPage ClickButtonNext()
         {
-            NextButton.Click();
+            nextButton.Click();
             return new PayPage(driver);
         }
 
         public bool VisibleNextButton()
         {
-            return NextButton.Displayed;
+            return nextButton.Displayed;
         }
     }
 }

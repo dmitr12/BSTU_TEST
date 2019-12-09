@@ -1,7 +1,7 @@
 ﻿using Framework.Models;
-using Framework.Services;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
 using System;
 
 namespace Framework.Pages
@@ -11,16 +11,16 @@ namespace Framework.Pages
         IWebDriver driver;
 
         [FindsBy(How = How.XPath, Using = "//input[@class='slide_tcal tc1']")]
-        IWebElement DepartureCity { get; set; }
+        IWebElement departureCity;
 
         [FindsBy(How = How.XPath, Using = "//input[@class='slide_tcal tc2']")]
-        IWebElement ArrivalCity { get; set; }
+        IWebElement arrivalCity;
 
         [FindsBy(How = How.XPath, Using = "//input[@class='slide_tcal tc3']")]
-        IWebElement DateFiled { get; set; }
+        IWebElement dateFiled;
 
         [FindsBy(How = How.XPath, Using = "//input[@class='search_button']")]
-        IWebElement SearchButton { get; set; }
+        IWebElement searchButton;
 
         public MainPage(IWebDriver driver)
         {
@@ -30,19 +30,21 @@ namespace Framework.Pages
 
         public ListTicketsPage InputRouteDateAndClickSearch(Route route)
         {
-            DepartureCity.SendKeys(route.DepartureCity);
-            ArrivalCity.SendKeys(route.ArrivalCity);
-            DateFiled.Clear();
-            DateFiled.SendKeys(route.DepartureDate);
-            SearchButton.Click();
+            departureCity.SendKeys(route.DepartureCity);
+            arrivalCity.SendKeys(route.ArrivalCity);
+            dateFiled.Clear();
+            dateFiled.SendKeys(route.DepartureDate);
+            searchButton.Click();
             return new ListTicketsPage(driver);
         }
 
-        public bool CheckCitiesBackground()
+        public bool CheckCitiesRedBackground()
         {
-            SearchButton.Click();
-            return (DepartureCity.GetCssValue("background-color") == "#FFFFFF"
-                && ArrivalCity.GetCssValue("background-color") == "#FFFFFF");
+            searchButton.Click();
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//input[@class='slide_tcal tc1 error_input']")));
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//input[@class='slide_tcal tc2 error_input']")));
+            return (driver.FindElement(By.XPath("//input[@class='slide_tcal tc1 error_input']")).Displayed
+                && driver.FindElement(By.XPath("//input[@class='slide_tcal tc2 error_input']")).Displayed);
         }
     }
 }

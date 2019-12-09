@@ -10,17 +10,17 @@ namespace Framework.Pages
     {
         IWebDriver driver;
 
-        [FindsBy(How = How.XPath, Using = "//div[@class='wg-wagon-type']/div[1]")]                                 
-        IWebElement TypeButton { get; set; }
+        [FindsBy(How = How.XPath, Using = "//div[@class='wg-wagon-type']/div[1]")]
+        IWebElement typeButton;
 
         [FindsBy(How = How.XPath, Using = "//button[@class='wg-button']")]
-        IWebElement NextButton { get; set; }
+        IWebElement nextButton;
 
         [FindsBy(How = How.XPath, Using = "//span[@class='wg-block__section-label t_error']/span")]
-        public IWebElement TextException { get; set; }
+        public IWebElement TextException { get; private set; }
 
-        [FindsBy(How=How.XPath, Using ="//span[@class='wg-link']")]
-        public IWebElement Parameters { get; set; }
+        [FindsBy(How = How.XPath, Using = "//span[@class='wg-link']")]
+        IWebElement parameters;
 
         public TypeTrainPage(IWebDriver driver)
         {
@@ -31,9 +31,9 @@ namespace Framework.Pages
         public TypeTrainPage ClickTypeTrain()
         {
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@class='wg-wagon-type']/div[1]")));
-            TypeButton.Click();
+            typeButton.Click();
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[@class='wg-button']")));
-            NextButton.Click();
+            nextButton.Click();
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[@class='wg-block__section-label t_error']/span")));
             return this;
         }
@@ -41,10 +41,10 @@ namespace Framework.Pages
         public UserInformationPage ChoseSeatAndClickUserInformation()
         {
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@class='wg-wagon-type']/div[1]")));
-            TypeButton.Click();
+            typeButton.Click();
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[@class='wg-link']")));
-            Parameters.Click();
-            NextButton.Click();
+            parameters.Click();
+            nextButton.Click();
             return new UserInformationPage(driver);
         }
     }

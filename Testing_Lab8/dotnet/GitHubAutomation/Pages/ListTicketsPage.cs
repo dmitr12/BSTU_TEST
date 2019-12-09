@@ -10,13 +10,13 @@ namespace Framework.Pages
         IWebDriver driver;
 
         [FindsBy(How = How.XPath, Using = "//div[@class='route_block']/div[@class='buy_button']")]
-        IWebElement BuyButton { get; set; }
+        IWebElement buyButton;
 
         [FindsBy(How = How.XPath, Using = "//div[@class='train_count']/span")]
-        public IWebElement CountRoute { get; set; }
+        public IWebElement CountRoute { get; private set; }
 
         [FindsBy(How = How.XPath, Using = "//div[@class='inner_left']/p")]
-        public IWebElement TextException { get; set; }
+        public IWebElement TextException { get; private set; }
 
         public ListTicketsPage(IWebDriver driver)
         {
@@ -30,7 +30,7 @@ namespace Framework.Pages
         public TypeTrainPage ClickBuyFirstTicket()
         {
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@class='route_block']/div[@class='buy_button']")));
-            BuyButton.Click();
+            buyButton.Click();
             return new TypeTrainPage(driver);     
         }
 

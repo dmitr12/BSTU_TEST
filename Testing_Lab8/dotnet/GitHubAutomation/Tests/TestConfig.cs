@@ -19,25 +19,8 @@ namespace GitHubAutomation.Tests
             Driver.Navigate().GoToUrl("https://zhd.online");
         }
 
-        //protected void MakeScreenshotWhenFail(Action action)
-        //{
-        //    try
-        //    {
-        //        action();
-        //    }
-        //    catch
-        //    {
-        //        string screenFolder = AppDomain.CurrentDomain.BaseDirectory + @"\screens";
-        //        Directory.CreateDirectory(screenFolder);
-        //        var screen = Driver.TakeScreenshot();
-        //        screen.SaveAsFile(screenFolder + @"\screen" + DateTime.Now.ToString("yy-MM-dd_hh-mm-ss") + ".png",
-        //            ScreenshotImageFormat.Png);
-        //        throw;
-        //    }
-        //}
-
         [OneTimeTearDown]
-        public void TearDown()
+        public void TimeTearDown()
         {
             if(TestContext.CurrentContext.Result.Outcome!=ResultState.Success)
             {

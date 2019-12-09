@@ -47,7 +47,7 @@ namespace Framework.Tests
         [Category("SearchTest")]
         public void FindTicketWithoutRoute()
         {
-            Assert.IsFalse(new MainPage(DriverSingleton.GetDriver()).CheckCitiesBackground());
+            Assert.IsTrue(new MainPage(DriverSingleton.GetDriver()).CheckCitiesRedBackground());
         }
 
         [Test]
