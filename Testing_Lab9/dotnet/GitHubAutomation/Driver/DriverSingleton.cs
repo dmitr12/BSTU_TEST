@@ -2,9 +2,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 

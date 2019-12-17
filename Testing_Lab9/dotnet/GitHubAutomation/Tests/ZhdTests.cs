@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿
 using Framework.Driver;
 using Framework.Pages;
 using Framework.Services;
@@ -7,8 +6,6 @@ using GitHubAutomation.Pages;
 using GitHubAutomation.Services;
 using GitHubAutomation.Tests;
 using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.Extensions;
 
 namespace Framework.Tests
 {
