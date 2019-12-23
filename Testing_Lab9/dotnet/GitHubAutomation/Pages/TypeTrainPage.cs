@@ -10,7 +10,7 @@ namespace Framework.Pages
     {
         IWebDriver driver;
 
-        [FindsBy(How = How.XPath, Using = "//div[@class='wg-wagon-type']/div[1]")]
+        [FindsBy(How = How.XPath, Using = "//div[@class='wg-wagon-type']/div")]
         IWebElement typeButton;
 
         [FindsBy(How = How.XPath, Using = "//button[@class='wg-button']")]
@@ -30,7 +30,7 @@ namespace Framework.Pages
 
         public TypeTrainPage ClickTypeTrain()
         {
-            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@class='wg-wagon-type']/div[1]")));
+            new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[@class='wg-wagon-type']/div")));
             typeButton.Click();
             new WebDriverWait(driver, TimeSpan.FromSeconds(10)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[@class='wg-button']")));
             nextButton.Click();

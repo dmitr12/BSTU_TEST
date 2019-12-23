@@ -25,6 +25,8 @@ namespace GitHubAutomation.Pages
 
         public PayPage ClickButtonNext()
         {
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
             nextButton.Click();
             return new PayPage(driver);
         }

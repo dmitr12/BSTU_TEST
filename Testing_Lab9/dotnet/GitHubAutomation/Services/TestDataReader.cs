@@ -15,7 +15,7 @@ namespace GitHubAutomation.Services
             get
             {
                 var variableFromConsole = TestContext.Parameters.Get("env");
-                string file = string.IsNullOrEmpty(variableFromConsole) ? "dev" : variableFromConsole;
+                string file = string.IsNullOrEmpty(variableFromConsole) ? "qa" : variableFromConsole;
                 int index = AppDomain.CurrentDomain.BaseDirectory.IndexOf("bin", StringComparison.Ordinal);
                 var configeMap = new ExeConfigurationFileMap
                 {
