@@ -11,19 +11,19 @@ namespace GitHubAutomation.Services
     {
         public static User WithAllProperties()
         {
-            return new User(TestDataReader.GetData("LastName"), TestDataReader.GetData("Name"), TestDataReader.GetData("MiddleName")
-                ,TestDataReader.GetData("BirthDay"), TestDataReader.GetData("Document"), TestDataReader.GetData("Mail"), TestDataReader.GetData("Phone"));
+            return new User(TestDataReader.GetData("LastName").Value, TestDataReader.GetData("Name").Value, TestDataReader.GetData("MiddleName").Value
+                ,TestDataReader.GetData("BirthDay").Value, TestDataReader.GetData("Document").Value, TestDataReader.GetData("Mail").Value, TestDataReader.GetData("Phone").Value);
         }
         public static User WithFailDocument()
         {
-            return new User(TestDataReader.GetData("LastName"), TestDataReader.GetData("Name"), TestDataReader.GetData("MiddleName")
-                , TestDataReader.GetData("BirthDay"), "0000000000", TestDataReader.GetData("Mail"), TestDataReader.GetData("Phone"));
+            return new User(TestDataReader.GetData("LastName").Value, TestDataReader.GetData("Name").Value, TestDataReader.GetData("MiddleName").Value
+                , TestDataReader.GetData("BirthDay").Value, "0000000000", TestDataReader.GetData("Mail").Value, TestDataReader.GetData("Phone").Value);
         }
 
         public static User WithFailBirthDay()
         {
-            return new User(TestDataReader.GetData("LastName"), TestDataReader.GetData("Name"), TestDataReader.GetData("MiddleName")
-                , "12.12.2222", TestDataReader.GetData("Document"), TestDataReader.GetData("Mail"), TestDataReader.GetData("Phone"));
+            return new User(TestDataReader.GetData("LastName").Value, TestDataReader.GetData("Name").Value, TestDataReader.GetData("MiddleName").Value
+                , "12.12.2222", TestDataReader.GetData("Document").Value, TestDataReader.GetData("Mail").Value, TestDataReader.GetData("Phone").Value);
         }
     }
 }
